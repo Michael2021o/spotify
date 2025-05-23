@@ -368,6 +368,65 @@ header {
   height: 25rem;
 }
 
+.main-footer {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  gap: 2rem;
+  font-size: var(--font-size-xxs);
+  color: var(--white);
+  padding: 1.4rem;
+  margin-top: 3rem;
+  border-top: 0.2px solid var(--light-grey);
+  padding-top: 4.8rem;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  line-height: 1.2;
+}
+.footer-text h2 {
+  font-size: var(--font-size-md);
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-text a {
+  font-size: var(--font-size-md);
+  color: var(--light-grey-2);
+  font-weight: 400;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-social i {
+  font-size: var(--font-size-lg);
+  height: 4rem;
+  width: 4rem;
+  color: var(--white);
+  padding: 2.4rem;
+  background-color: var(--dark-grey-3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Add hover effect */
+.footer-social i:hover {
+  border-color: var(--white);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
 .your-library {
   background-color: var(--dark-grey);
   border-radius: 1rem;
