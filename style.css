@@ -631,6 +631,11 @@ header {
     padding: 0.8rem;
   }
 
+  .nav-btn {
+    background-color: var(--white);
+    padding: 1rem 2.4rem;
+  }
+
   .logo {
     align-self: flex-start;
   }
@@ -640,5 +645,12 @@ header {
 
   .main-section {
     grid-column: 1 / -1;
+  }
+
+  .footer-banner {
+    padding: 3rem 1rem;
+  }
+  .footer-banner-btn {
+    padding: 1rem 1.6rem;
   }
 }
