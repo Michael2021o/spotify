@@ -57,12 +57,14 @@ a {
   margin: 0 auto;
   padding: 0 1rem;
   display: grid;
-  grid-template-columns: minmax(200px, 1fr) 4fr;
+  grid-template-columns: minmax(40rem, 40rem) 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas:
+  /* grid-template-columns: minmax(200px, 1fr) 4fr; */
+  /* grid-template-rows: auto 1fr auto; */
+  /* grid-template-areas:
     "header header"
     "your-library main-section"
-    "footer-banner footer-banner";
+    "footer-banner footer-banner"; */
   gap: 1rem;
 }
 
@@ -71,10 +73,8 @@ header {
   align-items: center;
   justify-content: space-between;
   height: fit-content;
-  /* background-color: #4caf50; */
   color: white;
-  padding: 1.4rem 1.4rem 1.4rem 1.4rem;
-  grid-area: header;
+  padding: 1.4rem;
   font-size: var(--font-size);
   position: fixed;
   top: 0;
@@ -146,7 +146,7 @@ header {
 }
 
 .search-input {
-  width: 40rem;
+  width: clamp(20rem, 20vw, 40rem);
   background-color: transparent;
   border: none;
   outline: none;
@@ -220,15 +220,14 @@ header {
 
 .main-section {
   background-color: var(--dark-grey);
-  /* background: linear-gradient(
-    180deg,
-    rgba(46, 46, 46, 1) 0%,
-    rgba(22, 22, 22, 1) 100%
-  ); */
-  grid-area: main-section;
-  padding: 4.8rem 3.6rem;
+  /* grid-area: main-section; */
+  padding: 4.8rem 2rem;
   border-radius: 1rem;
-  margin-top: 6rem;
+  margin-top: 7.6rem;
+  margin-bottom: 3rem;
+  overflow-y: auto;
+  grid-column: 2 / -1;
+  scrollbar-width: thin;
 }
 
 .trending-songs {
@@ -263,7 +262,7 @@ header {
   -ms-overflow-style: none; /* IE and Edge */
   padding: 1rem;
   scroll-behavior: smooth;
-  max-width: 130rem;
+  /* max-width: 130rem; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -289,8 +288,8 @@ header {
   display: block;
   background-image: url(img/icons/circle-play-regular.svg);
   position: absolute;
-  top: 12.8rem;
-  left: 13rem;
+  top: 11.8rem;
+  left: 12rem;
   z-index: 7;
   width: 5rem;
   height: 5rem;
@@ -325,11 +324,12 @@ header {
 }
 
 .popular-artists .song-card {
-  height: 26rem;
+  height: clamp(10rem, 10vw, 26rem);
 }
 .song-card--img {
-  height: 18rem;
-  width: 18rem;
+  height: clamp(10rem, 10vw, 17rem);
+
+  width: clamp(10rem, 10vw, 17rem);
   /* border-radius: 1rem; */
 }
 .song-card--img img {
@@ -357,8 +357,9 @@ header {
 }
 
 .circle img {
-  height: 18rem;
-  width: 18rem;
+  height: clamp(10rem, 10vw, 18rem);
+  width: clamp(10rem, 10vw, 18rem);
+  /* width: 18rem; */
   border-radius: 50%;
   object-fit: cover;
   /* border-radius: 1rem; */
@@ -428,17 +429,16 @@ header {
 }
 
 .your-library {
+  /* grid-column: 1 / 2; */
   background-color: var(--dark-grey);
   border-radius: 1rem;
-  grid-area: your-library;
-  /* position: fixed;
-  height: 100%;
-  z-index: -1; */
-  margin-top: 6rem;
+  /* grid-area: your-library; */
+  margin-top: 7.4rem;
   position: fixed;
-
-  height: 100%;
+  top: 0;
+  height: fit-content;
   margin-bottom: 9rem;
+  width: 40rem;
 }
 
 .your-library-header {
@@ -450,6 +450,23 @@ header {
   color: var(--white);
   padding: 1.4rem;
   margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .your-library-header {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .your-library-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .fa-plus {
@@ -518,7 +535,7 @@ header {
   height: 4rem;
   padding: 3rem 4rem;
   color: white;
-  grid-area: footer-banner;
+  /* grid-area: footer-banner; */
   position: fixed;
   bottom: 0;
   left: 0;
@@ -584,4 +601,44 @@ header {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  /* header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  } */
+  .your-library,
+  .nav--link-item,
+  .nav-stroke,
+  .nav-link {
+    display: none;
+  }
+  .main-section {
+    grid-column: 1 / -1;
+  }
+  .logo {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    font-size: var(--font-size-sm);
+    padding: 0.8rem;
+  }
+
+  .logo {
+    align-self: flex-start;
+  }
+  .your-library {
+    display: none;
+  }
+
+  .main-section {
+    grid-column: 1 / -1;
+  }
 }
