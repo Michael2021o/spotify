@@ -324,7 +324,7 @@ header {
 }
 
 .popular-artists .song-card {
-  height: clamp(10rem, 10vw, 26rem);
+  height: clamp(17rem, 10vw, 26rem);
 }
 .song-card--img {
   height: clamp(10rem, 10vw, 17rem);
